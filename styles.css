@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.icon {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.btn-custom {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+}
+
+#player-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button-icon {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.board-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 320px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+.cell:hover {
+    background-color: #f8f9fa;
+}
+
+.cell.win {
+    background-color: yellow;
+    animation: win-animation 1s;
+}
+
+@keyframes win-animation {
+    0% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.highlight {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+.firework {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    animation: firework-animation 1s ease-out;
+}
+
+@keyframes firework-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-group-lg {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+.status-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#message-gif {
+    max-width: 300px;
+}
+
+/* Additional CSS for responsive layout */
+@media (min-width: 770px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .board-container, .status-controls {
+        order: 1;
+    }
+
+    #message-container {
+        order: 2;
+        
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 770px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .board-container {
+        order: 1;
+        margin-right: 0;
+    }
+
+    .board {
+        max-width: 100%;
+    }
+
+    .cell {
+        width: 20vw;
+        height: 20vw;
+        font-size: 5vw;
+    }
+
+    .btn-custom {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .btn-group-lg {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    #message-container {
+        order: 2;
+        margin-top: 10px;
+    }
+
+    #message-gif {
+        max-width: 80%;
+    }
+
+    #player-selection-buttons {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .status-controls {
+        order: 3;
+        margin-top: 20px;
+    }
+}
+.highlight {
+    background-color: rgba(0, 255, 0, 0.3);
+  }
+  
+  #fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#fireworks-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.win {
+    color: green;
+    font-weight: bold;
+}
+
